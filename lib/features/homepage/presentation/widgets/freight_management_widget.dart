@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../config/theme/theme.dart';
+
 class FreightManagementWidget extends StatelessWidget {
   const FreightManagementWidget({super.key});
 
@@ -8,7 +10,12 @@ class FreightManagementWidget extends StatelessWidget {
     return const Column(
       children: [
         Align(
-            alignment: Alignment.centerLeft, child: Text('Available Vehicles')),
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Available Vehicles',
+            style: AppTextStyles.mainHeadingTextStyle,
+          ),
+        ),
         HorizontalCardList()
       ],
     );
@@ -22,24 +29,24 @@ class HorizontalCardList extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> availableFreights = [
       {
-        'freightType': 'Ocean Frieght',
+        'freightType': 'Ocean Freight',
         'availablility': 'International',
-        'imageUrl': 'assets/images/forklift.png',
+        'imageUrl': 'assets/images/ship.png',
       },
       {
-        'freightType': 'Cargo Frieght',
+        'freightType': 'Cargo Freight',
         'availablility': 'Reliable',
-        'imageUrl': 'assets/images/forklift.png',
+        'imageUrl': 'assets/images/track.png',
       },
       {
-        'freightType': 'Air Frieght',
+        'freightType': 'Air Freight',
         'availablility': 'International',
-        'imageUrl': 'assets/images/forklift.png',
+        'imageUrl': 'assets/images/ship.png',
       },
       {
-        'freightType': 'Space Frieght',
+        'freightType': 'Space Freight',
         'availablility': 'Spartial',
-        'imageUrl': 'assets/images/forklift.png',
+        'imageUrl': 'assets/images/track.png',
       },
     ];
     return SizedBox(
@@ -76,10 +83,10 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(5.0),
-      width: MediaQuery.of(context).size.width / 2.5,
+      width: MediaQuery.of(context).size.width / 2.7,
       decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       // elevation: 4.0,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -93,18 +100,11 @@ class CardItem extends StatelessWidget {
               children: [
                 Text(
                   freightType,
-                  style: const TextStyle(
-                    color: Colors.black54,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyles.sublteHeadingTextStyle,
                 ),
                 Text(
                   availablility,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.0,
-                  ),
+                  style: AppTextStyles.metaDataTextStyle,
                 ),
               ],
             ),

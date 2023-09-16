@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movemate/config/theme/theme.dart';
 import 'package:movemate/features/calculator/presentation/pages/calculator.dart';
 import 'package:movemate/features/homepage/presentation/widgets/freight_management_widget.dart';
 import 'package:movemate/features/homepage/presentation/widgets/shipments_tracking_widget.dart';
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     const HomePageContent(),
     const Calculator(),
     const Shipments(),
-    const Profile(),
+    // const Profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             label: 'Calculator',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.lock_clock),
+            icon: Icon(Icons.history),
             label: 'Shipments',
           ),
           BottomNavigationBarItem(
@@ -116,9 +117,9 @@ class HomePageContent extends StatelessWidget {
           const Expanded(
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Enter the recipient number...',
-                border: InputBorder.none,
-              ),
+                  hintText: 'Enter the recipient number ...',
+                  border: InputBorder.none,
+                  labelStyle: AppTextStyles.metaTextStyle),
             ),
           ),
           const SizedBox(width: 8.0),
@@ -166,24 +167,25 @@ class HomePageContent extends StatelessWidget {
                         angle: 45,
                         child: const Icon(
                           Icons.navigation_sharp,
+                          size: 16,
                           color: Colors.grey, // Icon color
                         ),
                       ),
                       const Text(
                         'Your location',
-                        style: TextStyle(fontSize: 16),
+                        style: AppTextStyles.metaDataTextStyle,
                       ),
                     ],
                   ),
                   const Row(
                     children: [
                       Text(
-                        'John Doe',
+                        'Werthiemer, Illinions',
                         style: TextStyle(fontSize: 16),
                       ),
                       Icon(
                         Icons.keyboard_arrow_down_sharp,
-                        color: Colors.grey, // Icon color
+                        color: Colors.white, // Icon color
                       ),
                     ],
                   ),
@@ -201,7 +203,10 @@ class HomePageContent extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(50))),
           child: Center(
             child: IconButton(
-              icon: const Icon(Icons.notifications_outlined),
+              icon: const Icon(
+                Icons.notifications_outlined,
+                color: Colors.black87,
+              ),
               onPressed: () {},
             ),
           ),

@@ -9,8 +9,14 @@ class AppThemes {
 
 class AppTextStyles {
   static const TextStyle mainHeadingTextStyle = TextStyle(
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: FontWeight.w500,
+    color: Color(0xFF0f1c39),
+  );
+  static const TextStyle sublteHeadingTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: Colors.black87,
   );
   static const TextStyle subHeadingTextStyle = TextStyle(
     fontSize: 18,
@@ -22,5 +28,7 @@ class AppTextStyles {
   );
   static const TextStyle metaDataTextStyle =
       TextStyle(fontSize: 12, color: Colors.grey);
+  static const TextStyle metaTextStyle =
+      TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.grey);
   static const TextStyle normalTextStyle = TextStyle(fontSize: 14);
 }
