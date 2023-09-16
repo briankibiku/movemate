@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     const HomePageContent(),
     const Calculator(),
     const Shipments(),
-    // const Profile(),
+    const Profile(),
   ];
   @override
   Widget build(BuildContext context) {

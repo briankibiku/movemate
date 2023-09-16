@@ -83,41 +83,42 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(10.0),
       width: MediaQuery.of(context).size.width / 2.7,
       decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(10))),
-      // elevation: 4.0,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  freightType,
-                  style: AppTextStyles.sublteHeadingTextStyle,
-                ),
-                Text(
-                  availablility,
-                  style: AppTextStyles.metaDataTextStyle,
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Image.asset(
-                imageUrl,
-                height: 100,
-                width: 100,
-              ),
-            ),
-          ],
+        color: Colors.white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
         ),
+      ),
+      // elevation: 4.0,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                freightType,
+                style: AppTextStyles.sublteHeadingTextStyle,
+              ),
+              Text(
+                availablility,
+                style: AppTextStyles.metaDataTextStyle,
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Image.asset(
+              imageUrl,
+              height: 100,
+              width: 100,
+            ),
+          ),
+        ],
       ),
     );
   }

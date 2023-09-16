@@ -22,6 +22,10 @@ class AppTextStyles {
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle currencyTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
 
   static const TextStyle bodyTextStyle = TextStyle(
     fontSize: 16,
