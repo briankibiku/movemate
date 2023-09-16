@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movemate/config/theme/theme.dart';
 
 class ShipmentCardWidget extends StatelessWidget {
   const ShipmentCardWidget({super.key});
@@ -9,14 +10,20 @@ class ShipmentCardWidget extends StatelessWidget {
       {
         'customerTitle': 'Sender',
         'place': 'Atlanta, 5243',
-        'time': '2 day - 3 days',
+        'arrivalStatus': {
+          'status': 'Time',
+          'eta': '2 day - 3 days',
+        },
         'action': 'sending'
       },
       {
         'customerTitle': 'Receiver',
         'place': 'Chicago, 6342',
         'status': 'Waiting to collect',
-        'time': '',
+        'arrivalStatus': {
+          'status': 'Status',
+          'eta': 'Waiting to collect',
+        },
         'action': 'receiving'
       }
     ];
@@ -32,7 +39,17 @@ class ShipmentCardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Column(
-                children: [Text('Shipment number'), Text('shipments numebr')],
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Shipment number',
+                    style: AppTextStyles.metaDataTextStyle,
+                  ),
+                  Text(
+                    'NJNU65GYG7876',
+                    style: AppTextStyles.mainHeadingTextStyle,
+                  )
+                ],
               ),
               Image.asset('assets/images/forklift.png'),
             ],
@@ -48,37 +65,65 @@ class ShipmentCardWidget extends StatelessWidget {
               itemBuilder: (BuildContext context, index) {
                 var customerDetail = customerDetails[index];
                 return Container(
-                  margin: const EdgeInsets.symmetric(vertical: 5),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 30,
-                            width: 30,
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                color: customerDetail['action'] == 'receiving'
-                                    ? Colors.greenAccent
-                                    : Colors.redAccent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(50))),
-                            child: Image.asset(
-                                customerDetail['action'] == 'receiving'
-                                    ? 'assets/images/import.png'
-                                    : 'assets/images/export.png'),
-                          ),
-                          Column(
-                            children: [
-                              Text(customerDetail['customerTitle']),
-                              Text(customerDetail['place'])
-                            ],
-                          ),
-                        ],
+                      Expanded(
+                        flex: 2,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 30,
+                              width: 30,
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: customerDetail['action'] == 'receiving'
+                                      ? Colors.greenAccent
+                                      : Colors.redAccent,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(50))),
+                              child: Image.asset(
+                                  customerDetail['action'] == 'receiving'
+                                      ? 'assets/images/import.png'
+                                      : 'assets/images/export.png'),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  customerDetail['customerTitle'],
+                                  style: AppTextStyles.metaDataTextStyle,
+                                ),
+                                Text(
+                                  customerDetail['place'],
+                                  style: AppTextStyles.normalTextStyle,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      Image.asset('assets/images/forklift.png'),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              customerDetail['arrivalStatus']['status'],
+                              style: AppTextStyles.metaDataTextStyle,
+                            ),
+                            Text(
+                              customerDetail['arrivalStatus']['eta'],
+                              style: AppTextStyles.normalTextStyle,
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 );

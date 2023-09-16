@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/features/homepage/presentation/widgets/shipment_card.dart';
 
+import '../../../../config/theme/theme.dart';
+
 class ShipmentsTrackingWidget extends StatefulWidget {
   const ShipmentsTrackingWidget({super.key});
 
@@ -14,7 +16,13 @@ class _ShipmentsTrackingWidgetState extends State<ShipmentsTrackingWidget> {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Align(alignment: Alignment.centerLeft, child: Text('Tracking')),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Tracking',
+            style: AppTextStyles.mainHeadingTextStyle,
+          ),
+        ),
         ShipmentCardWidget(),
       ],
     );

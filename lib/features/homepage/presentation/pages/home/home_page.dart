@@ -131,7 +131,7 @@ class HomePageContent extends StatelessWidget {
                   color: Color(0xFFF37A1F),
                   borderRadius: BorderRadius.all(Radius.circular(50))),
               child: const Icon(
-                Icons.local_grocery_store,
+                Icons.adf_scanner_rounded,
                 color: Colors.white, // Icon color
               ),
             ),
