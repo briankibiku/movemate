@@ -9,7 +9,7 @@ class AppThemes {
 
 class AppTextStyles {
   static const TextStyle mainHeadingTextStyle = TextStyle(
-    fontSize: 17,
+    fontSize: 18,
     fontWeight: FontWeight.w500,
     color: Color(0xFF0f1c39),
   );

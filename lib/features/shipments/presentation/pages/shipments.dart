@@ -62,6 +62,7 @@ class Shipments extends StatelessWidget {
               // margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     'Shipments',
