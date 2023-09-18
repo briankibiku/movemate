@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class ShippingStatusIndicatorWidget extends StatelessWidget {
   final Icon icon;
   final String status;
+  final Color textColor;
   const ShippingStatusIndicatorWidget(
-      {super.key, required this.icon, required this.status});
+      {super.key,
+      required this.icon,
+      required this.status,
+      required this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class ShippingStatusIndicatorWidget extends StatelessWidget {
           ),
           Text(
             status,
-            style: const TextStyle(color: Colors.green),
+            style: TextStyle(color: textColor),
           )
         ],
       ),

@@ -12,6 +12,7 @@ class AppColors {
   static const Color primaryColorLight = Color(0xFFF37A1F);
   static const Color whiteColor = Color(0xffffffff);
   static const Color greenColor = Colors.green;
+  static const Color blueColor = Color.fromARGB(255, 68, 125, 225);
 }
 
 class AppTextStyles {

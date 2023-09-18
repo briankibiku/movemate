@@ -108,7 +108,7 @@ class HomePageContent extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, Routes.searchPageRoute);
+          Navigator.pushNamed(context, Routes.searchPageRoute, arguments: '');
         },
         child: Container(
           decoration: BoxDecoration(
@@ -133,20 +133,15 @@ class HomePageContent extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8.0),
-              InkWell(
-                onTap: () {
-                  // Navigator.of(context).pushNamed(Routes.searchPageRoute);
-                },
-                child: Container(
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
-                      color: Color(0xFFF37A1F),
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
-                  child: const Icon(
-                    Icons.adf_scanner_rounded,
-                    color: Colors.white, // Icon color
-                  ),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: const BoxDecoration(
+                    color: Color(0xFFF37A1F),
+                    borderRadius: BorderRadius.all(Radius.circular(50))),
+                child: const Icon(
+                  Icons.adf_scanner_rounded,
+                  color: Colors.white, // Icon color
                 ),
               ),
             ],

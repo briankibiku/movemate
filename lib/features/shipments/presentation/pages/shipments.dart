@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/theme/theme.dart';
-import 'package:movemate/features/shipments/presentation/widgets/progress_indicator_widget.dart';
+import 'package:movemate/features/shipments/presentation/widgets/shipments_history_card.dart';
+
+import '../../data/repository/shipments_list.dart';
 
 class Shipments extends StatelessWidget {
   const Shipments({super.key});
@@ -73,74 +75,13 @@ class Shipments extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: shipmentsList.length,
                         itemBuilder: ((context, index) {
+                          final shipmentItem = shipmentsList[index];
                           return Column(
                             children: [
-                              Container(
-                                height: 150,
-                                padding: const EdgeInsets.all(10),
-                                decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const ShippingStatusIndicatorWidget(
-                                      icon: Icon(
-                                        Icons.update,
-                                        size: 20,
-                                        color: Colors.green,
-                                      ),
-                                      status: 'In-progress',
-                                    ),
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        const Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Arriving today',
-                                                  style: AppTextStyles
-                                                      .miniSubHeadingTextStyle,
-                                                ),
-                                                Text(
-                                                  'Your delivery #numbers from is arriving today',
-                                                  style: AppTextStyles
-                                                      .metaDataTextStyle,
-                                                ),
-                                              ],
-                                            ),
-                                            Text(
-                                              '\$1400 USD',
-                                              style: AppTextStyles
-                                                  .currencyTextStyle,
-                                            ),
-                                          ],
-                                        ),
-                                        Image.asset(
-                                          'assets/images/package.png',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
+                              ShipmentsHistoryCardWidget(
+                                  shipment: shipmentItem),
                               const SizedBox(
                                 height: 10,
                               ),

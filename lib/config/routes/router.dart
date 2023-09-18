@@ -15,9 +15,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ShipmentsSearchPage());
       case Routes.costEstimationPageRoute:
         return MaterialPageRoute(
-            builder: (_) => CostEstimation(
-                  cost: args,
-                ));
+          builder: (_) => CostEstimation(
+            cost: args,
+          ),
+        );
       default:
         // Handle unknown routes or show an error page
         return MaterialPageRoute(

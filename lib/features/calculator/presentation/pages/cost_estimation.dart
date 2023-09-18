@@ -98,7 +98,7 @@ class _CostEstimationState extends State<CostEstimation>
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50)),
               onPressed: () {
-                Navigator.of(context).pushNamed(Routes.searchPageRoute);
+                Navigator.pushNamed(context, Routes.homeRoute, arguments: '');
               },
               child: const Text(
                 'Back to home',
