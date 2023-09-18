@@ -11,6 +11,7 @@ class AppColors {
   static const Color primaryColor = Color(0xff493391);
   static const Color primaryColorLight = Color(0xFFF37A1F);
   static const Color whiteColor = Color(0xffffffff);
+  static const Color greenColor = Colors.green;
 }
 
 class AppTextStyles {
@@ -36,9 +37,16 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle mediumCurrencyTextStyle = TextStyle(
+    fontSize: 24,
+  );
 
   static const TextStyle bodyTextStyle = TextStyle(
     fontSize: 16,
+  );
+  static const TextStyle largeBodyTextStyle = TextStyle(
+    fontSize: 18,
+    color: Color(0xFF0f1c39),
   );
   static const TextStyle metaDataTextStyle =
       TextStyle(fontSize: 12, color: Colors.grey);
