@@ -12,7 +12,7 @@ class Shipments extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Shipments',
+            'Shipment history',
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
@@ -113,9 +113,9 @@ class Shipments extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'Arrivign today',
+                                                  'Arriving today',
                                                   style: AppTextStyles
-                                                      .mainHeadingTextStyle,
+                                                      .miniSubHeadingTextStyle,
                                                 ),
                                                 Text(
                                                   'Your delivery #numbers from is arriving today',

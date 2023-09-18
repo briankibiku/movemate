@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/features/homepage/presentation/pages/home/home_page.dart';
 
+import 'config/routes/router.dart';
 import 'config/theme/theme.dart';
 
 void main() {
@@ -13,8 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppThemes.lightTheme,
-        home: const HomePage());
+      debugShowCheckedModeBanner: false,
+      theme: AppThemes.lightTheme,
+      home: const HomePage(),
+      // navigatorKey: navigatorKey,
+      onGenerateRoute: RouteGenerator.generateRoute,
+    );
   }
 }

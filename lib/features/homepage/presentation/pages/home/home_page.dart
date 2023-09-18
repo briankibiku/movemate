@@ -6,6 +6,8 @@ import 'package:movemate/features/homepage/presentation/widgets/shipments_tracki
 import 'package:movemate/features/profile/presentation/pages/profile.dart';
 import 'package:movemate/features/shipments/presentation/pages/shipments.dart';
 
+import '../../../../../config/routes/routes.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -69,12 +71,12 @@ class HomePageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppbar(),
+      appBar: _buildAppbar(context),
       body: Container(
         color: const Color(0xFFF9F9F9),
         margin: const EdgeInsets.all(10),
-        child: const Column(
-          children: [
+        child: ListView(
+          children: const [
             ShipmentsTrackingWidget(),
             SizedBox(
               height: 20,
@@ -86,58 +88,70 @@ class HomePageContent extends StatelessWidget {
     );
   }
 
-  _buildAppbar() {
+  _buildAppbar(context) {
     return AppBar(
-        title: _userDetails(),
-        backgroundColor: const Color(0xff493391),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(100),
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-            color: const Color(0xff493391),
-            child: _searchInput(),
-          ),
-        ));
+      title: _userDetails(),
+      backgroundColor: const Color(0xff493391),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          color: const Color(0xff493391),
+          child: Hero(tag: 'search-bar-widget', child: _searchInput(context)),
+        ),
+      ),
+    );
   }
 
-  _searchInput() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(25.0),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Row(
-        children: [
-          const Icon(
-            Icons.search,
-            color: Colors.grey, // Icon color
+  _searchInput(context) {
+    return Material(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, Routes.searchPageRoute);
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(25.0),
           ),
-          const SizedBox(width: 8.0),
-          const Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Enter the recipient number ...',
-                  border: InputBorder.none,
-                  labelStyle: AppTextStyles.metaTextStyle),
-            ),
-          ),
-          const SizedBox(width: 8.0),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: const BoxDecoration(
-                  color: Color(0xFFF37A1F),
-                  borderRadius: BorderRadius.all(Radius.circular(50))),
-              child: const Icon(
-                Icons.adf_scanner_rounded,
-                color: Colors.white, // Icon color
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.search,
+                color: Colors.grey, // Icon color
               ),
-            ),
+              const SizedBox(width: 8.0),
+              const Expanded(
+                child: TextField(
+                  enabled: false,
+                  decoration: InputDecoration(
+                      hintText: 'Enter the recipient number ...',
+                      border: InputBorder.none,
+                      labelStyle: AppTextStyles.metaTextStyle),
+                ),
+              ),
+              const SizedBox(width: 8.0),
+              InkWell(
+                onTap: () {
+                  // Navigator.of(context).pushNamed(Routes.searchPageRoute);
+                },
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: const BoxDecoration(
+                      color: Color(0xFFF37A1F),
+                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                  child: const Icon(
+                    Icons.adf_scanner_rounded,
+                    color: Colors.white, // Icon color
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
