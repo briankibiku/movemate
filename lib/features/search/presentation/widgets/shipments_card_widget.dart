@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 
 import '../../../../config/theme/theme.dart';
 import '../../data/models/shipments_model.dart';
@@ -28,7 +29,7 @@ class ShipmentsCardWidget extends StatelessWidget {
                     color: AppColors.primaryColor,
                     borderRadius: BorderRadius.circular(40)),
                 child: Image.asset(
-                  'assets/images/package.png',
+                  AppString.packageImage,
                 ),
               ),
               const SizedBox(

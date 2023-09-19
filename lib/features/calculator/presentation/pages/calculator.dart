@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/routes/routes.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 import 'package:movemate/features/calculator/presentation/widgets/package_destination_widget.dart';
 import 'package:movemate/features/calculator/presentation/widgets/package_dropdown.dart';
 
@@ -18,13 +19,13 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, 'Calculate'),
+      appBar: customAppBar(context, AppString.calculate),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
             const Text(
-              'Destination',
+              AppString.destination,
               style: AppTextStyles.mainHeadingTextStyle,
             ),
             const SizedBox(
@@ -35,12 +36,12 @@ class _CalculatorState extends State<Calculator> {
             const Padding(
               padding: EdgeInsets.only(top: 20, bottom: 5),
               child: Text(
-                'Packaging',
+                AppString.packaging,
                 style: AppTextStyles.mainHeadingTextStyle,
               ),
             ),
             Text(
-              'What are you sending?',
+              AppString.whatSending,
               style: AppTextStyles.metaDataTextStyle.copyWith(fontSize: 17),
             ),
             const SizedBox(
@@ -51,12 +52,12 @@ class _CalculatorState extends State<Calculator> {
             const Padding(
               padding: EdgeInsets.only(top: 20, bottom: 5),
               child: Text(
-                'Categories',
+                AppString.categories,
                 style: AppTextStyles.mainHeadingTextStyle,
               ),
             ),
             Text(
-              'What are you sending?',
+              AppString.whatSending,
               style: AppTextStyles.metaDataTextStyle.copyWith(fontSize: 17),
             ),
             const SizedBox(
@@ -81,7 +82,7 @@ class _CalculatorState extends State<Calculator> {
                 );
               },
               child: const Text(
-                'Calculate',
+                AppString.calculate,
                 style: TextStyle(color: Colors.white),
               ),
             )

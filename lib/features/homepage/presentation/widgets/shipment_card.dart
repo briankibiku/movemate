@@ -1,33 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/theme/theme.dart';
 
+import '../../data/repository/freight_customer_details.dart';
+
 class ShipmentCardWidget extends StatelessWidget {
   const ShipmentCardWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> customerDetails = [
-      {
-        'customerTitle': 'Sender',
-        'place': 'Atlanta, 5243',
-        'arrivalStatus': {
-          'status': 'Time',
-          'eta': '2 day - 3 days',
-        },
-        'action': 'sending'
-      },
-      {
-        'customerTitle': 'Receiver',
-        'place': 'Chicago, 6342',
-        'status': 'Waiting to collect',
-        'arrivalStatus': {
-          'status': 'Status',
-          'eta': 'Waiting to collect',
-        },
-        'action': 'receiving'
-      }
-    ];
-
     return Container(
       decoration: const BoxDecoration(
           color: Colors.white,

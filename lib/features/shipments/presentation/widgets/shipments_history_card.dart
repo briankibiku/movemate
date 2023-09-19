@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 import 'package:movemate/features/shipments/presentation/widgets/progress_indicator_widget.dart';
 
 import '../../../../config/theme/theme.dart';
@@ -112,7 +113,7 @@ class ShipmentsHistoryCardWidget extends StatelessWidget {
                 ],
               ),
               Image.asset(
-                'assets/images/package.png',
+                AppString.packageImage,
                 height: 50,
                 width: 50,
               ),

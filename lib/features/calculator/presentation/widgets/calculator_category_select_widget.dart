@@ -18,7 +18,7 @@ class _MultiSelectOptionsWidgetState extends State<MultiSelectOptionsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 200,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
           color: Colors.white,
@@ -27,45 +27,43 @@ class _MultiSelectOptionsWidgetState extends State<MultiSelectOptionsWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Material(
-            child: Wrap(
-              spacing: 8.0,
-              runSpacing: 8.0,
-              children: options.map((option) {
-                final isSelected = selectedOptions.contains(option);
+          Wrap(
+            spacing: 8.0,
+            runSpacing: 8.0,
+            children: options.map((option) {
+              final isSelected = selectedOptions.contains(option);
 
-                return ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: isSelected
-                        ? MaterialStateProperty.all<Color>(Colors.black)
-                        : MaterialStateProperty.all<Color>(Colors.white),
-                    side: MaterialStateProperty.all<BorderSide>(
-                      const BorderSide(
-                        color: Colors.black38,
-                        width: 1.0,
-                      ),
+              return ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: isSelected
+                      ? MaterialStateProperty.all<Color>(Colors.black)
+                      : MaterialStateProperty.all<Color>(Colors.white),
+                  side: MaterialStateProperty.all<BorderSide>(
+                    const BorderSide(
+                      color: Colors.black38,
+                      width: 1.0,
                     ),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      if (isSelected) {
-                        selectedOptions.remove(option);
-                      } else {
-                        selectedOptions.add(option);
-                      }
-                    });
-                  },
-                  child: Text(
-                    option,
-                    style: TextStyle(
-                      color: isSelected ? Colors.white : Colors.grey[800],
-                      fontSize: 12,
-                    ),
+                ),
+                onPressed: () {
+                  setState(() {
+                    if (isSelected) {
+                      selectedOptions.remove(option);
+                    } else {
+                      selectedOptions.add(option);
+                    }
+                  });
+                },
+                child: Text(
+                  option,
+                  style: TextStyle(
+                    color: isSelected ? Colors.white : Colors.grey[800],
+                    fontSize: 12,
                   ),
-                );
-              }).toList(),
-            ),
-          )
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/routes/routes.dart';
 import 'package:movemate/config/theme/theme.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 
 class CostEstimation extends StatefulWidget {
   final String cost;
@@ -54,13 +55,13 @@ class _CostEstimationState extends State<CostEstimation>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/move_mate.png',
+              AppString.moveMateImage,
             ),
             const SizedBox(
               height: 10,
             ),
             Image.asset(
-              'assets/images/package.png',
+              AppString.packageImage,
               height: 120,
               width: 120,
             ),
@@ -68,7 +69,7 @@ class _CostEstimationState extends State<CostEstimation>
               height: 30,
             ),
             Text(
-              'Total Estimated Amount',
+              AppString.totalEstCost,
               style: AppTextStyles.largeBodyTextStyle
                   .copyWith(fontSize: 22, fontWeight: FontWeight.w400),
             ),
@@ -81,7 +82,7 @@ class _CostEstimationState extends State<CostEstimation>
               height: 10,
             ),
             Text(
-              'This amount is estimated this will vary if you change your location or weight',
+              AppString.giveQuoteString,
               style: AppTextStyles.metaDataTextStyle.copyWith(fontSize: 14),
             ),
             const SizedBox(
@@ -97,7 +98,7 @@ class _CostEstimationState extends State<CostEstimation>
                 Navigator.pushNamed(context, Routes.homeRoute, arguments: '');
               },
               child: const Text(
-                'Back to home',
+                AppString.backHome,
                 style: TextStyle(color: Colors.white),
               ),
             )

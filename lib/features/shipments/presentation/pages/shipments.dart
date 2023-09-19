@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/theme/theme.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 import 'package:movemate/features/shipments/presentation/widgets/shipments_history_card.dart';
 
 import '../../data/repository/shipments_list.dart';
@@ -15,7 +16,7 @@ class Shipments extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Shipment history',
+            AppString.shipmentHistory,
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
@@ -67,7 +68,7 @@ class Shipments extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Shipments',
+                    AppString.shipments,
                     style: AppTextStyles.mainHeadingTextStyle,
                   ),
                   const SizedBox(
@@ -92,11 +93,11 @@ class Shipments extends StatelessWidget {
                 ],
               ),
             ),
-            FilteredList(status: 'complete', itemList: shipmentsList),
-            FilteredList(status: 'in-progress', itemList: shipmentsList),
-            FilteredList(status: 'pending', itemList: shipmentsList),
-            FilteredList(status: 'loading', itemList: shipmentsList),
-            FilteredList(status: 'cancelled', itemList: shipmentsList),
+            FilteredList(status: AppString.complete, itemList: shipmentsList),
+            FilteredList(status: AppString.inprogress, itemList: shipmentsList),
+            FilteredList(status: AppString.pending, itemList: shipmentsList),
+            FilteredList(status: AppString.loading, itemList: shipmentsList),
+            FilteredList(status: AppString.cancelled, itemList: shipmentsList),
           ],
         ),
       ),

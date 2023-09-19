@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 
 import '../../../../config/theme/theme.dart';
 import '../../data/models/shipments_model.dart';
@@ -86,7 +87,7 @@ class _ShipmentsSearchPageState extends State<ShipmentsSearchPage> {
                                 autofocus: true,
                                 onChanged: _filterShipments,
                                 decoration: const InputDecoration(
-                                    hintText: 'Enter the recipient number ...',
+                                    hintText: AppString.recipientNumber,
                                     border: InputBorder.none,
                                     labelStyle: AppTextStyles.metaTextStyle),
                               ),

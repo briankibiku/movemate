@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/theme/theme.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 import 'package:movemate/features/calculator/presentation/pages/calculator.dart';
 import 'package:movemate/features/homepage/presentation/widgets/freight_management_widget.dart';
 import 'package:movemate/features/homepage/presentation/widgets/shipments_tracking_widget.dart';
@@ -36,19 +37,19 @@ class _HomePageState extends State<HomePage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            label: AppString.home,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calculate),
-            label: 'Calculator',
+            label: AppString.calculator,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
-            label: 'Shipments',
+            label: AppString.shipments,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_2_outlined),
-            label: 'Profile',
+            label: AppString.profile,
           ),
         ],
       ),
@@ -83,7 +84,7 @@ class _HomePageContentState extends State<HomePageContent>
     );
 
     _animation = Tween<Offset>(
-      begin: const Offset(3.0, 02.0),
+      begin: const Offset(3.0, 0.0),
       end: const Offset(0.0, 0.0),
     ).animate(
       CurvedAnimation(
@@ -167,7 +168,7 @@ class _HomePageContentState extends State<HomePageContent>
                 child: TextField(
                   enabled: false,
                   decoration: InputDecoration(
-                      hintText: 'Enter the recipient number ...',
+                      hintText: AppString.recipientNumber,
                       border: InputBorder.none,
                       labelStyle: AppTextStyles.metaTextStyle),
                 ),
@@ -219,7 +220,7 @@ class _HomePageContentState extends State<HomePageContent>
                         ),
                       ),
                       const Text(
-                        'Your location',
+                        AppString.yourLocation,
                         style: AppTextStyles.metaDataTextStyle,
                       ),
                     ],
@@ -227,7 +228,7 @@ class _HomePageContentState extends State<HomePageContent>
                   const Row(
                     children: [
                       Text(
-                        'Werthiemer, Illinions',
+                        AppString.dummyUsername,
                         style: TextStyle(fontSize: 16),
                       ),
                       Icon(

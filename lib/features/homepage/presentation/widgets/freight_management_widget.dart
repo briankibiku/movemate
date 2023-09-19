@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 
 import '../../../../config/theme/theme.dart';
+import '../../data/repository/available_freight.dart';
 
 class FreightManagementWidget extends StatelessWidget {
   const FreightManagementWidget({super.key});
@@ -12,7 +14,7 @@ class FreightManagementWidget extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'Available Vehicles',
+            AppString.availableVehicles,
             style: AppTextStyles.mainHeadingTextStyle,
           ),
         ),
@@ -27,28 +29,6 @@ class HorizontalCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> availableFreights = [
-      {
-        'freightType': 'Ocean Freight',
-        'availablility': 'International',
-        'imageUrl': 'assets/images/ship.png',
-      },
-      {
-        'freightType': 'Cargo Freight',
-        'availablility': 'Reliable',
-        'imageUrl': 'assets/images/track.png',
-      },
-      {
-        'freightType': 'Air Freight',
-        'availablility': 'International',
-        'imageUrl': 'assets/images/ship.png',
-      },
-      {
-        'freightType': 'Space Freight',
-        'availablility': 'Spartial',
-        'imageUrl': 'assets/images/track.png',
-      },
-    ];
     return SizedBox(
       height: 200,
       child: ListView.builder(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/theme/theme.dart';
+import 'package:movemate/core/constants/app_strings.dart';
 import 'package:movemate/features/shipments/presentation/widgets/shipments_history_card.dart';
 
 import '../../data/data_sources/shipment_tracking.dart';
@@ -27,21 +28,8 @@ class FilteredList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
-                      if (filteredItems.isEmpty)
-                        Column(
-                          children: [
-                            Image.asset(
-                              'assets/images/empty.png',
-                              height: 100,
-                              width: 100,
-                            ),
-                            const Text(
-                                'You do not have any shipments in this status'),
-                          ],
-                        ),
-                      if (filteredItems.isNotEmpty)
-                        ShipmentsHistoryCardWidget(
-                            shipment: filteredItems[index]),
+                      ShipmentsHistoryCardWidget(
+                          shipment: filteredItems[index]),
                       const SizedBox(
                         height: 10,
                       ),
@@ -57,7 +45,7 @@ class FilteredList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/images/empty.png',
+                    AppString.emptyInbox,
                     height: 100,
                     width: 100,
                   ),
@@ -65,7 +53,7 @@ class FilteredList extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'You do not have any shipments in this status',
+                    AppString.noShipments,
                     style: AppTextStyles.normalTextStyle.copyWith(fontSize: 14),
                   ),
                 ],
