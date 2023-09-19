@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:movemate/config/routes/routes.dart';
+import 'package:movemate/features/calculator/presentation/widgets/package_destination_widget.dart';
+import 'package:movemate/features/calculator/presentation/widgets/package_dropdown.dart';
 
 import '../../../../config/theme/theme.dart';
 import '../../../homepage/presentation/widgets/shared/bottom_navigation_widget.dart';
+import '../widgets/calculator_category_select_widget.dart';
 
-class Calculator extends StatelessWidget {
+class Calculator extends StatefulWidget {
   const Calculator({super.key});
 
   @override
+  State<Calculator> createState() => _CalculatorState();
+}
+
+class _CalculatorState extends State<Calculator> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, 'Calculator'),
+      appBar: customAppBar(context, 'Calculate'),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(
@@ -22,64 +30,8 @@ class Calculator extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              height: 230,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(16.0),
-                        hintText: 'Sender location',
-                        prefixIcon: Icon(Icons.outbox_outlined),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(16.0),
-                        hintText: 'Receiver location',
-                        prefixIcon: Icon(Icons.inbox_outlined),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(16.0),
-                        hintText: 'Approx weight',
-                        prefixIcon: Icon(Icons.scale_outlined),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // package destination widget
+            const PackageDestinationWidget(),
             const Padding(
               padding: EdgeInsets.only(top: 20, bottom: 5),
               child: Text(
@@ -94,20 +46,8 @@ class Calculator extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Container(
-              height: 60,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              padding: const EdgeInsets.all(20),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('data'),
-                ],
-              ),
-            ),
+            // package dropdown widget
+            const PackageDropdownWidget(),
             const Padding(
               padding: EdgeInsets.only(top: 20, bottom: 5),
               child: Text(
@@ -121,6 +61,11 @@ class Calculator extends StatelessWidget {
             ),
             const SizedBox(
               height: 10,
+            ),
+            // categories multiselect widget
+            const MultiSelectOptionsWidget(),
+            const SizedBox(
+              height: 20,
             ),
             MaterialButton(
               color: AppColors.primaryColorLight,

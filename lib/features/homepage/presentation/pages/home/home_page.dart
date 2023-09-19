@@ -91,6 +91,7 @@ class HomePageContent extends StatelessWidget {
   _buildAppbar(context) {
     return AppBar(
       title: _userDetails(),
+      automaticallyImplyLeading: false,
       backgroundColor: const Color(0xff493391),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(100),
