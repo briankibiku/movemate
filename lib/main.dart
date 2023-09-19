@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppThemes.lightTheme,
       home: const HomePage(),
-      // navigatorKey: navigatorKey,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

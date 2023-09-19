@@ -77,7 +77,7 @@ class _ShipmentsSearchPageState extends State<ShipmentsSearchPage> {
                         children: [
                           const Icon(
                             Icons.search,
-                            color: Colors.grey, // Icon color
+                            color: Colors.grey,
                           ),
                           const SizedBox(width: 8.0),
                           Expanded(
@@ -102,7 +102,7 @@ class _ShipmentsSearchPageState extends State<ShipmentsSearchPage> {
                                     BorderRadius.all(Radius.circular(50))),
                             child: const Icon(
                               Icons.adf_scanner_rounded,
-                              color: Colors.white, // Icon color
+                              color: Colors.white,
                             ),
                           ),
                         ],

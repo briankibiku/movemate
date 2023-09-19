@@ -13,7 +13,7 @@ class _TextDropDownButtonState extends State<TextDropDownButton> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: selectedOption,
-      icon: const Icon(Icons.arrow_drop_down), // Right arrow icon
+      icon: const Icon(Icons.arrow_drop_down),
       onChanged: (String? newValue) {
         setState(() {
           selectedOption = newValue!;

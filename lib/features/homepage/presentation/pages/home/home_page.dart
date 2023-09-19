@@ -18,7 +18,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  // Define your pages/screens here
   final List<Widget> _pages = [
     const HomePageContent(),
     const Calculator(),
@@ -30,7 +29,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        // selectedItemColor: Color,
         selectedItemColor: const Color(0xff493391),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
@@ -54,7 +52,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      // _homePageContent(),
     );
   }
 
@@ -65,8 +62,38 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class HomePageContent extends StatelessWidget {
+class HomePageContent extends StatefulWidget {
   const HomePageContent({super.key});
+
+  @override
+  State<HomePageContent> createState() => _HomePageContentState();
+}
+
+class _HomePageContentState extends State<HomePageContent>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+    _animation = Tween<Offset>(
+      begin: const Offset(3.0, 02.0),
+      end: const Offset(0.0, 0.0),
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _controller.forward();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,16 +103,28 @@ class HomePageContent extends StatelessWidget {
         color: const Color(0xFFF9F9F9),
         margin: const EdgeInsets.all(10),
         child: ListView(
-          children: const [
-            ShipmentsTrackingWidget(),
-            SizedBox(
+          children: [
+            SlideTransition(
+              position: _animation,
+              child: const ShipmentsTrackingWidget(),
+            ),
+            const SizedBox(
               height: 20,
             ),
-            FreightManagementWidget()
+            SlideTransition(
+              position: _animation,
+              child: const FreightManagementWidget(),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   _buildAppbar(context) {
@@ -121,7 +160,7 @@ class HomePageContent extends StatelessWidget {
             children: [
               const Icon(
                 Icons.search,
-                color: Colors.grey, // Icon color
+                color: Colors.grey,
               ),
               const SizedBox(width: 8.0),
               const Expanded(
@@ -142,7 +181,7 @@ class HomePageContent extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: const Icon(
                   Icons.adf_scanner_rounded,
-                  color: Colors.white, // Icon color
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -155,13 +194,11 @@ class HomePageContent extends StatelessWidget {
   _userDetails() {
     return Row(
       children: [
-        // Left: Avatar
         const CircleAvatar(
           backgroundImage: NetworkImage(
-            'https://images.unsplash.com/photo-1621624666561-84d0107001dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80', // Replace with the actual URL
+            'https://images.unsplash.com/photo-1621624666561-84d0107001dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80',
           ),
         ),
-
         Expanded(
           child: Align(
             alignment: Alignment.topLeft,
@@ -178,7 +215,7 @@ class HomePageContent extends StatelessWidget {
                         child: const Icon(
                           Icons.navigation_sharp,
                           size: 16,
-                          color: Colors.grey, // Icon color
+                          color: Colors.grey,
                         ),
                       ),
                       const Text(
@@ -195,7 +232,7 @@ class HomePageContent extends StatelessWidget {
                       ),
                       Icon(
                         Icons.keyboard_arrow_down_sharp,
-                        color: Colors.white, // Icon color
+                        color: Colors.white,
                       ),
                     ],
                   ),
@@ -204,7 +241,6 @@ class HomePageContent extends StatelessWidget {
             ),
           ),
         ),
-
         Container(
           height: 40,
           width: 40,

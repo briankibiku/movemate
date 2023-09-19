@@ -16,8 +16,7 @@ class Profile extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage(
-                  'assets/images/woman.png'), // Replace with your image path
+              backgroundImage: AssetImage('assets/images/woman.png'),
             ),
             SizedBox(height: 20),
             Text(

@@ -1,0 +1,7 @@
+flutter_native_splash:
+  image: assets/images/delivery.png
+  color: ffffff
+  android: true
+  ios: true
+  fill: true
+  fit: BoxFit.contain

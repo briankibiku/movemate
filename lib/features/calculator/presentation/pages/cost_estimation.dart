@@ -19,26 +19,22 @@ class _CostEstimationState extends State<CostEstimation>
   void initState() {
     super.initState();
 
-    // Create an AnimationController with the desired duration
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2), // You can adjust the duration
+      duration: const Duration(seconds: 2),
     );
 
-    // Create a Tween that animates from 0 to 1450
     final Animation<int> countAnimation = IntTween(
       begin: 0,
       end: 1450,
     ).animate(_controller);
 
-    // Add a listener to update the count when the animation value changes
     countAnimation.addListener(() {
       setState(() {
         _count = countAnimation.value;
       });
     });
 
-    // Start the animation
     _controller.forward();
   }
 

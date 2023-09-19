@@ -20,7 +20,6 @@ class RouteGenerator {
           ),
         );
       default:
-        // Handle unknown routes or show an error page
         return MaterialPageRoute(
           builder: (_) => const Scaffold(
             body: Center(

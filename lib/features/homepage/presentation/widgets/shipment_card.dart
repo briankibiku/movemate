@@ -55,8 +55,8 @@ class ShipmentCardWidget extends StatelessWidget {
             ],
           ),
           const Divider(
-            color: Colors.grey, // Customize the color of the divider
-            thickness: 0.5, // Customize the thickness of the divider
+            color: Colors.grey,
+            thickness: 0.5,
           ),
           SizedBox(
             height: 100,
@@ -131,8 +131,8 @@ class ShipmentCardWidget extends StatelessWidget {
             ),
           ),
           const Divider(
-            color: Colors.grey, // Customize the color of the divider
-            thickness: 0.5, // Customize the thickness of the divider
+            color: Colors.grey,
+            thickness: 0.5,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -50,10 +50,10 @@ class HorizontalCardList extends StatelessWidget {
       },
     ];
     return SizedBox(
-      height: 200, // Adjust the height as needed
+      height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: availableFreights.length, // Number of cards
+        itemCount: availableFreights.length,
         itemBuilder: (context, index) {
           var availableFreight = availableFreights[index];
           return CardItem(
@@ -91,7 +91,6 @@ class CardItem extends StatelessWidget {
           Radius.circular(10),
         ),
       ),
-      // elevation: 4.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -11,7 +11,7 @@ class Shipments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6, // Number of tabs
+      length: 6,
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -60,10 +60,8 @@ class Shipments extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            // Content for the 'Active' tab
             Container(
               color: const Color(0xFFF9F9F9),
-              // margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
