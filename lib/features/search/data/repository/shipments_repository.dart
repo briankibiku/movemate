@@ -15,7 +15,7 @@ final List<Shipment> shipments = [
   ),
   Shipment(
     itemShipped: 'Rims',
-    shipmentNumber: '#NEJ342317',
+    shipmentNumber: '#NEJ3317',
     origin: 'Buguma',
     destination: 'Abuja',
   ),
@@ -28,14 +28,14 @@ final List<Shipment> shipments = [
   Shipment(
     itemShipped: 'Google Pixel',
     shipmentNumber: '#NEJ32807',
-    origin: 'Michigan',
-    destination: 'California',
+    origin: 'Lamu',
+    destination: 'Coast',
   ),
   Shipment(
     itemShipped: 'CPA Book',
     shipmentNumber: '#NEJ38427',
-    origin: 'Michigan',
-    destination: 'California',
+    origin: 'Lamu',
+    destination: 'Dua',
   ),
   Shipment(
     itemShipped: 'iPhone 13',
@@ -52,14 +52,14 @@ final List<Shipment> shipments = [
   Shipment(
     itemShipped: 'MacBook Pro',
     shipmentNumber: '#NEJ24427',
-    origin: 'Michigan',
-    destination: 'California',
+    origin: 'Lamu',
+    destination: 'Dua',
   ),
   Shipment(
     itemShipped: 'MacBook Pro',
     shipmentNumber: '#NEJ288427',
-    origin: 'Michigan',
-    destination: 'California',
+    origin: 'Lamu',
+    destination: 'Dua',
   ),
   Shipment(
     itemShipped: 'Sony Pro',
@@ -76,7 +76,7 @@ final List<Shipment> shipments = [
   Shipment(
     itemShipped: 'Lenovo Pro',
     shipmentNumber: '#NEJ028427',
-    origin: 'Minesota',
+    origin: 'Obi',
     destination: 'Lagos',
   ),
 ];

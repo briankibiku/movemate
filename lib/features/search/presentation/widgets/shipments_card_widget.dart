@@ -63,7 +63,7 @@ class ShipmentsCardWidget extends StatelessWidget {
                       const Icon(Icons.arrow_forward,
                           color: Colors.grey, size: 15),
                       SizedBox(
-                        width: 100,
+                        width: 60,
                         child: Text(
                           shipment.destination,
                           style: AppTextStyles.cardMetaTextStyle,
