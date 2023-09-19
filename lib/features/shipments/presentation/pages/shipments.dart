@@ -3,6 +3,7 @@ import 'package:movemate/config/theme/theme.dart';
 import 'package:movemate/features/shipments/presentation/widgets/shipments_history_card.dart';
 
 import '../../data/repository/shipments_list.dart';
+import '../widgets/shipments_filtered_list_widget.dart';
 
 class Shipments extends StatelessWidget {
   const Shipments({super.key});
@@ -10,7 +11,7 @@ class Shipments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5, // Number of tabs
+      length: 6, // Number of tabs
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -46,6 +47,7 @@ class Shipments extends StatelessWidget {
               const Tab(text: 'Completed'),
               const Tab(text: 'In progress'),
               const Tab(text: 'Pending Order'),
+              const Tab(text: 'Loading'),
               const Tab(text: 'Cancelled'),
             ],
           ),
@@ -92,10 +94,11 @@ class Shipments extends StatelessWidget {
                 ],
               ),
             ),
-            const Center(child: Text('Tab 2 Content')),
-            const Center(child: Text('Tab 3 Content')),
-            const Center(child: Text('Tab 4 Content')),
-            const Center(child: Text('Tab 5 Content')),
+            FilteredList(status: 'complete', itemList: shipmentsList),
+            FilteredList(status: 'in-progress', itemList: shipmentsList),
+            FilteredList(status: 'pending', itemList: shipmentsList),
+            FilteredList(status: 'loading', itemList: shipmentsList),
+            FilteredList(status: 'cancelled', itemList: shipmentsList),
           ],
         ),
       ),
